@@ -11,3 +11,11 @@ BSD
 
 ## Windows Installer
 [stltostp-1.0.1-win64.msi](https://github.com/slugdev/stltostp/releases/download/v1.0.1/stltostp-1.0.1-win64.msi)
+
+
+## Docker build
+I successfuly compiled binary on ubuntu:18.04 image. You can use binary with these shell commands:
+```shell
+$ docker-compose -f docker-compose.dev.yml up --build
+$ docker exec -it stltostp_server_1 bash
+```

@@ -28,6 +28,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 
 #include <vector>
 #include <string>
+#include <math.h>
 #include "StepKernel.h"
 #include <iostream>
 #include <fstream>
@@ -36,14 +37,14 @@ std::vector<double> read_stl_binary(std::string file_name)
 {
 	/*
 	according to wikipedia ...
-	UINT8[80] – Header
-	UINT32 – Number of triangles
+	UINT8[80] ï¿½ Header
+	UINT32 ï¿½ Number of triangles
 	foreach triangle
-	REAL32[3] – Normal vector
-	REAL32[3] – Vertex 1
-	REAL32[3] – Vertex 2
-	REAL32[3] – Vertex 3
-	UINT16 – Attribute byte count
+	REAL32[3] ï¿½ Normal vector
+	REAL32[3] ï¿½ Vertex 1
+	REAL32[3] ï¿½ Vertex 2
+	REAL32[3] ï¿½ Vertex 3
+	UINT16 ï¿½ Attribute byte count
 	end	*/
 
 	std::vector<double> nodes;
