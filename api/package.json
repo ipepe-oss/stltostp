@@ -1,0 +1,11 @@
+{
+  "name": "stltostp-api",
+  "version": "1.0.0",
+  "description": "Http wrapper round stltostp commandline tool",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Partyk Ptasinski (ipepe)",
+  "license": "MIT"
+}
