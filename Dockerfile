@@ -1,13 +1,20 @@
-FROM ubuntu:18.04
-RUN apt-get update && apt-get install -y git build-essential cmake libtool dh-autoreconf cmake git python3-setuptools python3-sip-dev tar gzip wget
-RUN mkdir -p /root/stl_to_stp
-WORKDIR /root/stl_to_stp
+FROM ubuntu:18.04 as builder
+RUN apt-get update && apt-get install -y cmake build-essential
+RUN mkdir -p /root/src
+WORKDIR /root/src
 ADD . .
 RUN mkdir build && cmake . && make
 
-RUN echo "sleep 100000000000" >> /copy.sh
-RUN chmod +x /copy.sh
-ENTRYPOINT '/copy.sh'
+FROM node:8
+COPY --from=builder /root/src/stltostp /usr/local/bin/stltost
+
+WORKDIR /app
+
+COPY api .
+RUN npm install
+
+EXPOSE 80
+ENV PORT=80
+CMD [ "node", "index.js" ]
 
 # docker-compose -f docker-compose.dev.yml up --build
-# docker exec -it stltostp_server_1 bash
