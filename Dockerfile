@@ -1,14 +1,20 @@
 FROM ubuntu:18.04 as builder
 RUN apt-get update && apt-get install -y cmake build-essential
-RUN mkdir -p /root/stl_to_stp
-WORKDIR /root/stl_to_stp
+RUN mkdir -p /root/src
+WORKDIR /root/src
 ADD . .
 RUN mkdir build && cmake . && make
 
-COPY --from=builder /go/src/github.com/xcoulon/go-url-shortener/bin/go-url-shortener /usr/local/bin/go-url-shortener
-
 FROM node:8
+COPY --from=builder /root/src/stltostp /usr/local/bin/stltost
 
+WORKDIR /app
+
+COPY api .
+RUN npm install
+
+EXPOSE 80
+ENV PORT=80
+CMD [ "node", "index.js" ]
 
 # docker-compose -f docker-compose.dev.yml up --build
-# docker exec -it stltostp_server_1 bash
