@@ -28,3 +28,4 @@ In the second and final part of Dockerfile there is a nodejs code that enables Y
     <input type="submit" value="Upload" name="submit">
   </form>
 ```
+It will respond with file or JSON object with error key and string value of that key that explains what went wrong when converting Your request.
