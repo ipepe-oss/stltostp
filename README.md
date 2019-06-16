@@ -20,7 +20,7 @@ BSD
 In the first part of image (`builder`) in Dockerfile there are scripts to compile this library on ubuntu. You can use that image to compile it Yourself and extract it later.
 
 ### API
-In the second and final part of Dockerfile there is a nodejs code that enables You to run it as a http processing service. To use http API You should do a POST request to /api/process with multipart form and file field with name of `input`. Like:
+In the second and final part of Dockerfile there is a nodejs code that enables You to run this library as a http processing service. To use http API You should do a POST request to /api/process with multipart form and file field with name of `input`. Like:
 ```html
   <form action="/api/process" method="post" enctype="multipart/form-data">
     Select STL file to upload:
