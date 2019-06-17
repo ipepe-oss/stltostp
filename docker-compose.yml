@@ -1,0 +1,15 @@
+version: '2'
+services:
+  server:
+    image: ipepe/stltostp
+    restart: always
+    network_mode: bridge
+    expose:
+      - 80
+    labels:
+      - "traefik.enable=true"
+      - "traefik.port=80"
+      - "traefik.frontend.rule=Host:stltostp.3dless.com"
+
+
+# docker-compose -f docker-compose.yml up
