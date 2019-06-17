@@ -13,9 +13,19 @@ BSD
 [stltostp-1.0.1-win64.msi](https://github.com/slugdev/stltostp/releases/download/v1.0.1/stltostp-1.0.1-win64.msi)
 
 
-## Docker build
-I successfuly compiled binary on ubuntu:18.04 image. You can use binary with these shell commands:
-```shell
-$ docker-compose -f docker-compose.dev.yml up --build
-$ docker exec -it stltostp_server_1 bash
+## Docker
+
+### Builder
+
+In the first part of image (`builder`) in Dockerfile there are scripts to compile this library on ubuntu. You can use that image to compile it Yourself and extract it later.
+
+### API
+In the second and final part of Dockerfile there is a nodejs code that enables You to run this library as a http processing service. To use http API You should do a POST request to /api/process with multipart form and file field with name of `input`. Like:
+```html
+  <form action="/api/process" method="post" enctype="multipart/form-data">
+    Select STL file to upload:
+    <input type="file" name="input" id="fileToUpload">
+    <input type="submit" value="Upload" name="submit">
+  </form>
 ```
+It will respond with file or JSON object with error key and string value of that key that explains what went wrong when converting Your request.
