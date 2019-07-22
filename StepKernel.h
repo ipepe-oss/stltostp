@@ -31,6 +31,7 @@ SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.*/
 #include <map>
 #include <algorithm>
 #include <sstream>
+#include <math.h>
 
 class StepKernel
 {
@@ -55,7 +56,7 @@ public:
 			// Find first non-delimiter.
 			std::string::size_type pos = str.find_first_of(delimiters, lastPos);
 
-			while (std::string::npos != pos || std::string::npos != lastPos) 
+			while (std::string::npos != pos || std::string::npos != lastPos)
 			{
 				// Found a token, add it to the vector.
 				tokens.push_back(str.substr(lastPos, pos - lastPos));
