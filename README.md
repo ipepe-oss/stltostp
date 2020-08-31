@@ -13,6 +13,16 @@ BSD
 [stltostp-1.0.1-win64.msi](https://github.com/slugdev/stltostp/releases/download/v1.0.1/stltostp-1.0.1-win64.msi)
 
 
+## Linux building from source
+```shell script
+apt-get update && apt-get install -y cmake build-essential git
+git clone https://github.com/slugdev/stltostp.git
+cd stltostp
+mkdir build
+cmake .
+make
+```
+
 ## Docker
 
 ### API
