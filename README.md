@@ -15,12 +15,8 @@ BSD
 
 ## Docker
 
-### Builder
-
-In the first part of image (`builder`) in Dockerfile there are scripts to compile this library on ubuntu. You can use that image to compile it Yourself and extract it later.
-
 ### API
-In the second and final part of Dockerfile there is a nodejs code that enables You to run this library as a http processing service. To use http API You should do a POST request to /api/process with multipart form and file field with name of `input`. Like:
+For Dockerfile there is a nodejs code that enables You to run this library as a http processing service. To use http API You should do a POST request to /api/process with multipart form and file field with name of `input`. Like:
 ```html
   <form action="/api/process" method="post" enctype="multipart/form-data">
     Select STL file to upload:
@@ -29,3 +25,17 @@ In the second and final part of Dockerfile there is a nodejs code that enables Y
   </form>
 ```
 It will respond with file or JSON object with error key and string value of that key that explains what went wrong when converting Your request.
+
+### docker command
+`docker run -p 8080:80 ipepe/stltostp-api`
+
+### docker-compose.yml
+
+```yaml
+version: '2'
+services:
+  server:
+    image: ipepe/stltostp-api
+    ports:
+      - 8080:80
+```

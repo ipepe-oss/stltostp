@@ -1,7 +1,7 @@
 version: '2'
 services:
   server:
-    image: ipepe/stltostp
+    image: ipepe/stltostp-api
     restart: always
     network_mode: bridge
     expose:
