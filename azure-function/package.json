@@ -1,0 +1,13 @@
+{
+  "name": "stltostp",
+  "version": "",
+  "description": "",
+  "scripts": {
+    "test": "echo \"No tests yet...\""
+  },
+  "author": "",
+  "dependencies": {
+    "busboy": "^0.3.1",
+    "parse-multipart": "^1.0.4"
+  }
+}
